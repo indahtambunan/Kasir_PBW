@@ -364,8 +364,15 @@
 
                      <li>
                         <a href="?page=penjualan&kode_penjualan=<?php echo $kode; ?>">
-                            <i class="material-icons">person</i>
+                            <i class="material-icons">shopping_basket</i>
                             <span>Penjualan</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a data-toggle="modal" data-target="#smallModal">
+                            <i class="material-icons">today</i>
+                            <span>Laporan</span>
                         </a>
                     </li>
 
@@ -678,3 +685,36 @@
     }
 
  ?>
+
+<!-- laporan penjualan -->
+ <div class="modal fade" id="smallModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="smallModalLabel">Laporan Penjualan</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form method="POST" action="page/penjualan/laporan.php" target="blank">
+
+                            <label for="">Tanggal Awal</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="date" name="tanggal_awal" class="form-control"/>
+                                </div>
+                            </div>
+
+                            <label for="">Tanggal Akhir</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="date" name="tanggal_akhir" class="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary waves-effect">Print</button>
+                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>

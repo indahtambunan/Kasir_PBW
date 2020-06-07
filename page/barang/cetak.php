@@ -1,7 +1,7 @@
 <?php 
 	$koneksi = new mysqli("localhost", "root", "", "db_pos");
-
  ?>
+
  <style>
  	@media print{
  		input.Print{
@@ -9,6 +9,7 @@
  		}
  	}
  </style>
+
 <table border="1" width="100%" style="border-collapse: collapse;">
 	<caption>Laporan Data Barang</caption>
 	<thead>
@@ -26,27 +27,24 @@
 	<tbody>
 		<?php
 
-                                        $no = 1;
-                                        $sql = $koneksi->query("select * from barang");
-                                        while ($data = $sql->fetch_assoc()) {
-                                            
-                                        
+            $no = 1;
+            $sql = $koneksi->query("select * from barang");
+            while ($data = $sql->fetch_assoc()) {
+        ?>
 
-                                    ?>
+            <tr>
+                <td><?php echo $no++; ?></td>
+                <td><?php echo $data['kode']; ?></td>
+                <td><?php echo $data['nama_barang']; ?></td>
+                <td><?php echo $data['satuan']; ?></td>
+                <td><?php echo $data['harga_beli']; ?></td>
+                <td><?php echo $data['stok']; ?></td>
+                <td><?php echo $data['harga_jual']; ?></td>
+                <td><?php echo $data['profit']; ?></td>
+                
+            </tr>  
 
-                                    <tr>
-                                        <td><?php echo $no++; ?></td>
-                                        <td><?php echo $data['kode']; ?></td>
-                                        <td><?php echo $data['nama_barang']; ?></td>
-                                        <td><?php echo $data['satuan']; ?></td>
-                                        <td><?php echo $data['harga_beli']; ?></td>
-                                        <td><?php echo $data['stok']; ?></td>
-                                        <td><?php echo $data['harga_jual']; ?></td>
-                                        <td><?php echo $data['profit']; ?></td>
-                                        
-                                    </tr>  
-
-                                    <?php } ?>
+           	<?php } ?>
 
 	</tbody>
 </table>

@@ -1,11 +1,7 @@
 <?php
-
     session_start();
-
     error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
-
     $koneksi = new mysqli("localhost", "root", "", "db_pos");
-
     if ($_SESSION['admin'] || $_SESSION['kasir']) {
         header("location: index.php");
     }else
@@ -17,9 +13,9 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Login</title>
+    <title>Login - TOKO KITA</title>
     <!-- Favicon-->
-    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/shop.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -38,22 +34,22 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body class="login-page">
+<body class="login-page" style="background-color: #3949ab;">
     <div class="login-box">
-        <!-- <div class="logo">
-            <a href="javascript:void(0);">Admin<b>BSB</b></a>
-            <small>Admin BootStrap Based - Material Design</small>
-        </div> -->
-        <div class="card">
+        <div class="logo">
+            <a href="javascript:void(0);">Toko<b>Kita</b></a>
+            <small>Selamat Datang - Silahkan Login Terlebih Dahulu</small>
+        </div>
+        <div class="card" style="border-radius: 10px; box-shadow: 1px 1px 2px 2px;">
             <div class="body">
                 <form id="sign_in" method="POST">
-                    <div class="msg">Masuk Username dan Password Anda</div>
+                    <div class="msg"><img src="images/shop.png" style="width: 20%;"></div>
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+                            <input type="text" class="form-control" name="username" placeholder="Username" required >
                         </div>
                     </div>
                     <div class="input-group">
@@ -65,21 +61,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <!-- <div class="col-xs-8 p-t-5">
-                            <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">
-                            <label for="rememberme">Remember Me</label>
-                        </div> -->
-                        <div class="col-xs-4">
-                            <input type="submit" name="login" value="login" class="btn btn-block bg-pink waves-effect">
+                        <div class="col-md-12">
+                            <input type="submit" name="login" value="Login" class="btn btn-block bg-pink waves-effect">
                         </div>
-                    </div>
-                    <div class="row m-t-15 m-b--20">
-                        <!-- <div class="col-xs-6">
-                            <a href="sign-up.html">Register Now!</a>
-                        </div>
-                        <div class="col-xs-6 align-right">
-                            <a href="forgot-password.html">Forgot Password?</a>
-                        </div> -->
                     </div>
                 </form>
             </div>
@@ -107,10 +91,9 @@
 
 <?php 
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $login = $_POST['login'];
+    $username   = $_POST['username'];
+    $password   = $_POST['password'];
+    $login      = $_POST['login'];
 
     if ($login) {
         $sql = $koneksi->query("select * from user where username='$username' and password='$password'");
@@ -122,32 +105,19 @@
 
             if ($data['level'] == "admin") {
                 $_SESSION['admin'] = $data[id];
-                
                 header("location: index.php");
 
             }else if ($data['level'] == kasir) {
                 $_SESSION['kasir'] = $data[id];
-                
                 header("location: index.php");
-            }
-            
+            }            
 
-            }else{
+        }else{
             ?>
-
-                <script type="text/javascript">
-                    
-                    alert("Login Gagal");
-                </script>
-
+            <script type="text/javascript">
+                alert("Login Gagal, Silahkan Masukkan Username dan Password Anda dengan Benar");
+            </script>
             <?php
-        }
-        
-        }
-
+        }   
+    }
  ?>
-
- <?php 
-
-
-  ?>

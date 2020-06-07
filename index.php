@@ -1,12 +1,8 @@
 <?php
     error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
-
     session_start();
-
     include "kode_penjualan.php";
-
     $koneksi = new mysqli("localhost", "root", "", "db_pos");
-
     if ($_SESSION['admin'] || $_SESSION['kasir']) {
 ?>
 
@@ -16,9 +12,9 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Blank Page | Bootstrap Based Admin Template - Material Design</title>
+    <title>POS - TokoKita</title>
     <!-- Favicon-->
-    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/shop.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -79,12 +75,12 @@
     </div>
     <!-- #END# Search Bar -->
     <!-- Top Bar -->
-    <nav class="navbar">
+    <nav class="navbar" style="background-color: #3949ab;">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="../../index.html">ADMINBSB - MATERIAL DESIGN</a>
+                <a class="navbar-brand" href="index.php"> Toko<b>Kita</b></a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -95,187 +91,14 @@
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
-                            <span class="label-count">7</span>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">NOTIFICATIONS</li>
-                            <li class="body">
-                                <ul class="menu">
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-light-green">
-                                                <i class="material-icons">person_add</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4>12 new members joined</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 14 mins ago
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-cyan">
-                                                <i class="material-icons">add_shopping_cart</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4>4 sales made</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 22 mins ago
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-red">
-                                                <i class="material-icons">delete_forever</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4><b>Nancy Doe</b> deleted account</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 3 hours ago
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-orange">
-                                                <i class="material-icons">mode_edit</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4><b>Nancy</b> changed name</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 2 hours ago
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-blue-grey">
-                                                <i class="material-icons">comment</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4><b>John</b> commented your post</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 4 hours ago
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-light-green">
-                                                <i class="material-icons">cached</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4><b>John</b> updated status</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 3 hours ago
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-purple">
-                                                <i class="material-icons">settings</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4>Settings updated</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> Yesterday
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="footer">
-                                <a href="javascript:void(0);">View All Notifications</a>
-                            </li>
-                        </ul>
                     </li>
                     <!-- #END# Notifications -->
                     <!-- Tasks -->
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">flag</i>
-                            <span class="label-count">9</span>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">TASKS</li>
-                            <li class="body">
-                                <ul class="menu tasks">
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <h4>
-                                                Footer display issue
-                                                <small>32%</small>
-                                            </h4>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-pink" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 32%">
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <h4>
-                                                Make new buttons
-                                                <small>45%</small>
-                                            </h4>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-cyan" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <h4>
-                                                Create new dashboard
-                                                <small>54%</small>
-                                            </h4>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-teal" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 54%">
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <h4>
-                                                Solve transition issue
-                                                <small>65%</small>
-                                            </h4>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <h4>
-                                                Answer GitHub questions
-                                                <small>92%</small>
-                                            </h4>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-purple" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 92%">
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="footer">
-                                <a href="javascript:void(0);">View All Tasks</a>
-                            </li>
-                        </ul>
                     </li>
                     <!-- #END# Tasks -->
                     <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
@@ -292,8 +115,8 @@
             $user = $_SESSION['kasir'];
         }
 
-        $sql = $koneksi->query("select * from user where id='$user'");
-        $data = $sql->fetch_assoc();
+        $sql    = $koneksi->query("select * from user where id='$user'");
+        $data   = $sql->fetch_assoc();
 
      ?>
 
@@ -302,7 +125,7 @@
         <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar">
             <!-- User Info -->
-            <div class="user-info">
+            <div class="user-info" style="background: url(images/bg.jpg); background-size: cover;">
                 <div class="image">
                     <img src="images/<?php echo $data['foto']; ?>" width="48" height="48" alt="User" />
                 </div>
@@ -312,9 +135,8 @@
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
-                            <li role="seperator" class="divider"></li>
-                            
+                            <!-- <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                            <li role="seperator" class="divider"></li> -->
                             <li role="seperator" class="divider"></li>
                             <li><a href="logout.php"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
@@ -339,7 +161,7 @@
 
                     <li>
                         <a href="?page=barang">
-                            <i class="material-icons">view_module</i>
+                            <i class="material-icons">payment</i>
                             <span>Barang</span>
                         </a>
                     </li>
@@ -356,11 +178,7 @@
                         </a>
                     </li>
 
-                    <?php 
-
-                        }
-
-                     ?>
+                    <?php } ?>
 
                      <li>
                         <a href="?page=penjualan&kode_penjualan=<?php echo $kode; ?>">
@@ -377,22 +195,13 @@
                     </li>
 
                     <li class="active">
-
-                        <ul class="ml-menu">
-                            
-                        </ul>
+                        <ul class="ml-menu"></ul>
                     </li>
                     <li>
-                      
-                        <ul class="ml-menu">
-
-                        </ul>
+                        <ul class="ml-menu"></ul>
                     </li>
                     <li>
-
-                        <ul class="ml-menu">
-
-                        </ul>
+                        <ul class="ml-menu"></ul>
                     </li>
 
                 </ul>
@@ -401,10 +210,10 @@
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
-                    &copy; 2016 - 2017 <a href="javascript:void(0);">AdminBSB - Material Design</a>.
+                    &copy; 2020 <a href="javascript:void(0);"><h7 style="color: #3949ab;">Kelompok 7 - POS</h7></a>
                 </div>
                 <div class="version">
-                    <b>Version: </b> 1.0.5
+                    <b>Version: </b> 1.0.1
                 </div>
             </div>
             <!-- #Footer -->
@@ -555,11 +364,11 @@
         <!-- #END# Right Sidebar -->
     </section>
 
+    <!-- url untuk page dan aksi -->
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
                 <?php
-
                     $page = $_GET['page'];
                     $aksi = $_GET['aksi'];
 
@@ -579,8 +388,6 @@
                         if ($aksi == "hapus") {
                             include "page/barang/hapus.php";
                         }
-
-
                     }
 
                     if ($page == "pelanggan") {
@@ -671,7 +478,6 @@
     <script src="js/admin.js"></script>
     <script src="js/pages/tables/jquery-datatable.js"></script>
 
-
     <!-- Demo Js -->
     <script src="js/demo.js"></script>
 </body>
@@ -683,7 +489,6 @@
 
         header("location: login.php");
     }
-
  ?>
 
 <!-- laporan penjualan -->
@@ -711,8 +516,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary waves-effect">Print</button>
-                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                            <button type="submit" class="btn btn-success waves-effect"><i class="material-icons" data-toggle="tooltip" data-placement="top" title="Cetak">print</i></button>
+                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Tutup</button>
                         </div>
                     </form>
                     </div>
